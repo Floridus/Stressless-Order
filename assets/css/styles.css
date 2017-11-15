@@ -1,0 +1,123 @@
+#mainContent {
+    margin-top: 65px;
+}
+
+#sidebarIcon {
+    margin-right: -10px;
+}
+
+.ui.huge.vertical.menu.sidebar {
+    width: 15rem;
+}
+
+#back {
+    float: left;
+}
+
+#siteHeading {
+    float: right;
+    font-size: x-large;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.selectMenu {
+    width: 100%;
+    height: 17%;
+    position: relative;
+    background: #545454;
+    display: block;
+    overflow: hidden;
+    margin: 1em 0;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selectMenu > span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    color: #FFF;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.productImage {
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.extra {
+    z-index: 1;
+}
+
+.orderButton {
+    margin-top: -38px !important;
+}
+
+.ui.items>.item .meta {
+    color: black;
+    font-size: 1.2em;
+    margin-top: 8px;
+}
+
+.ui.items>.item>.content>.header {
+    display: block;
+    margin-top: 0px;
+}
+
+.ui.tag.label, .ui.tag.labels .label {
+    font-size: .9em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-left: -10px;
+}
+
+.ui.circular.label, .ui.circular.labels .label {
+    margin-left: -10px;
+}
+
+section.productDetails {
+    margin: auto;
+}
+
+#productImage {
+    width: 60%;
+    float: left;
+    margin-bottom: 10px;
+}
+
+#productInfos {
+    margin-bottom: 10px;
+}
+
+.orderingPrice {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.orderingCount {
+    margin-bottom: 10px;
+}
+
+#alertMsg {
+    position: absolute;
+    top: 120px;
+    width: 90%;
+    margin: auto;
+    z-index: 100;
+}
+
+.ui.message>.close.icon {
+    top: 0.1em;
+    right: 0.1em;
+    font-size: 20px;
+}

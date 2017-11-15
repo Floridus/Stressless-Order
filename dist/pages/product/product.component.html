@@ -1,0 +1,53 @@
+<sm-loader [complete]="isOrdering" class="inverted large" text="In den Warenkorb"></sm-loader>
+<sm-button id="back" class="negative larger" (click)="goBack()" icon="arrow left"></sm-button>
+
+<div [class]="getMsgClass()" id="alertMsg">
+    <i (click)="hideMsg()" class="close icon"></i>
+    <div class="header">
+        {{ msgHeader }}
+    </div>
+    <p>{{ msgInfo }}</p>
+</div>
+
+<span *ngIf="product != null" id="siteHeading">{{product.name}}</span>
+<br>
+<div class="ui divider"></div>
+<section *ngIf="product != null" class="productDetails">
+    <div id="productImage">
+        <img src="assets/images/wireframe.png">
+    </div>
+    <div id="productInfos">
+        <div class="orderingPrice">
+            <span class="ui tag label">{{product.price | number: '1.2-2'}} €</span>
+        </div>
+        <div class="orderingCount">
+            Anzahl
+            <select #count class="ui dropdown">
+                <option *ngFor="let number of numbers" [value]="number">{{number}}</option>
+            </select>
+        </div>
+        <div class="orderingButton">
+            <div class="ui center floated positive button" (click)="buyProduct(count.value, changeInfo.value)">
+                 Warenkorb
+                 <i class="shop icon"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <div class="ui label orange">A, B, C, D, E, F, G, H, I, J, K, L, M</div>
+</div>
+<div *ngIf="product != null && product.description != ''" class="ui divider"></div>
+<div *ngIf="product != null && product.description != ''">
+    Details<br>
+    {{product.description}}
+</div>
+<div class="ui divider"></div>
+<div>
+    <div class="ui form">
+        <div class="field">
+            <label>Änderungen</label>
+            <textarea rows="3" #changeInfo></textarea>
+        </div>
+    </div>
+</div>

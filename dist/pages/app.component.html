@@ -1,0 +1,21 @@
+<div [class]="getOverlay()" (click)="showOverlay = !showOverlay;">
+    <a sm-item routerLink="/selection" icon="Wpforms">Menükarte</a>
+    <a sm-item routerLink="/bill" icon="Payment">Rechnung</a>
+    <a sm-item icon="Announcement">Kellner rufen</a>
+    <a sm-item icon="Help">So geht es</a>
+    <a sm-item icon="Info">Informationen</a>
+    <a sm-item icon="Heartbeat">Allergen-Kennzeichnung</a>
+    <a sm-item icon="Comment">Feedback</a>
+</div>
+<div class="ui main container">
+    <sm-menu class="green fixed inverted">
+        <a sm-item image="/assets/images/wieden-logo.png">{{company}}</a>
+        <sm-menu *ngIf="authService.loggedIn()" class="menu right secondary">
+            <a sm-item routerLink="/shoppingCart" icon="shop big" class="item"><a [class]="getShoppingCartColor()">{{ shoppingCartProducts }}</a></a>
+            <a id="sidebarIcon" sm-item icon="sidebar big" class="item" (click)="showOverlay = !showOverlay;"></a>
+        </sm-menu>
+    </sm-menu>
+    <div id="mainContent">
+        <router-outlet></router-outlet>
+    </div>
+</div>

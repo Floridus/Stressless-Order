@@ -1,0 +1,16 @@
+<sm-loader [complete]="isCompleted" class="inverted large" text="Laden"></sm-loader>
+<sm-button *ngIf="categoryId > 0" class="negative larger" (click)="goBack()" icon="arrow left"></sm-button>
+
+<span *ngIf="categoryName != ''" id="siteHeading">{{categoryName}}</span>
+<div *ngFor="let category of categories">
+    <a sm-item *ngIf="category.children.length == 0" routerLink="/category/{{category.id}}">
+        <div class="ui centered selectMenu">
+            <span>{{category.name}}</span>
+        </div>
+    </a>
+    <a sm-item *ngIf="category.children.length > 0" routerLink="/selection/{{category.id}}">
+        <div class="ui centered selectMenu">
+            <span>{{category.name}}</span>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,44 @@
+<sm-loader [complete]="isCompleted" class="inverted large" text="Laden"></sm-loader>
+<sm-button class="negative larger" (click)="goBack()" icon="arrow left"></sm-button>
+
+<div *ngIf="isWaiterCalled == true" class="ui message blue" id="alertMsg">
+    <i (click)="hideMsg()" class="close icon"></i>
+    <div class="header">
+        Kellner gerufen.
+    </div>
+    <p>Ein Kellner wurde gerufen und wird sich in Kürze melden.</p>
+</div>
+
+<span id="siteHeading">Rechnung</span>
+<div class="ui celled list">
+    <div *ngFor="let order of orders" class="item">
+        <div class="right floated content">
+            {{ (order.amount * order.product.price) | number: '1.2-2'}} €
+        </div>
+        <img class="ui mini image" src="assets/images/wireframe.png">
+        <div class="content">
+            <div class="header">{{ order.product.name }}</div>
+            {{ order.amount }}x {{ order.product.price | number: '1.2-2'}} €
+        </div>
+    </div>
+    <div class="item">
+        <div class="right floated content">
+            {{ billPrice | number: '1.2-2'}} €
+        </div>
+        <div class="content">
+            <div class="header">Gesamt:</div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="billPrice > 0" class="ui buttons">
+    <button class="ui button">
+        <i class="icon credit card alternative"></i>
+        Online bezahlen
+    </button>
+    <div class="or" data-text="or"></div>
+    <button class="ui positive button" (click)="callWaiter()">
+        <i class="icon announcement"></i>
+        Kellner rufen
+    </button>
+</div>

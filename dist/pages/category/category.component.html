@@ -1,0 +1,40 @@
+<sm-loader [complete]="isCompleted" class="inverted large" text="Laden"></sm-loader>
+<sm-loader [complete]="isOrdering" class="inverted large" text="In den Warenkorb"></sm-loader>
+<sm-button id="back" class="negative larger" (click)="goBack()" icon="arrow left"></sm-button>
+
+<div [class]="getMsgClass()" id="alertMsg">
+    <i (click)="hideMsg()" class="close icon"></i>
+    <div class="header">
+        {{ msgHeader }}
+    </div>
+    <p>{{ msgInfo }}</p>
+</div>
+
+<span id="siteHeading">{{categoryName}}</span>
+<br>
+<div class="ui divider"></div>
+<div class="ui divided items">
+    <div *ngFor="let product of products" class="item">
+        <div class="content">
+            <div class="productImage" (click)="linkProduct(product.id)">
+                <div class="ui fluid image">
+                    <div class="ui green left corner label">
+                        <i class="search icon"></i>
+                    </div>
+                    <img src="assets/images/wireframe.png">
+                </div>
+            </div>
+            <a class="header">{{product.name}}</a>
+            <div class="extra">
+                <div class="ui label orange">A, B, C, D, E, F, G, H, I, J, K, L, M</div>
+                <div class="meta">
+                    <span class="ui tag label">{{product.price | number: '1.2-2'}} €</span>
+                </div>
+                <div class="ui right floated positive button orderButton" (click)="buyProduct(product.id)">
+                    Warenkorb
+                    <i class="shop icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
